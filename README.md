@@ -1,43 +1,49 @@
-# Food Explorer 🥦
 
-A simple grocery browsing app built with plain HTML, CSS, and JavaScript. No frameworks, no build tools — just open and go.
 
----
+🥦 Food Explorer  🍔
 
-## What it does
+Food Explorer is a front-end web application that allows users to discover and explore grocery items through a clean, interactive interface. It fetches real-time data from an external API and presents it in a user-friendly format.
 
-- Fetches grocery items from the [DummyJSON API](https://dummyjson.com/products/category/groceries)
-- Shows them as cards with an image, name, category, and price
-- Lets you search by name, filter by category, and sort by price
+🚀 Features
+   🔍 Search food items by name
+   🗂️ Filter items by category
+   💰 Sort items by price
+   🖼️ Display products as responsive cards with image, name, category, and price
+   ⚡ Dynamic data fetching using API
 
----
+   
+🌐 API Used
 
-## How to run it
+Fetches grocery items from the [DummyJSON API](https://dummyjson.com/products/category/groceries)
 
-Just open `index.html` in your browser. That's it.
 
-If you prefer the command line:
-```bash
-open index.html
-```
+🛠️ Tech Stack
 
-Or if you want auto-reload while editing, use VS Code's **Live Server** extension.
+   1. HTML
+   2. CSS
+   3. JavaScript (DOM Manipulation + Fetch API)
 
----
 
-## File structure
+📂 Project Structure
 
-```
 FOODD/
-├── index.html   # page structure
-├── style.css    # styling and layout
-└── script.js    # all the logic
-```
+├── index.html   # Structure of the app
+├── style.css    # Styling and layout
+└── script.js    # API handling and logic
 
----
 
-## Notes
+⚙️ How to Run
 
-- No `for` or `while` loops — filter/sort/render all use `map`, `filter`, and `sort`
-- The original data is never modified; filtering works on a separate copy
-- Works offline except for the initial API fetch and Google Fonts
+   Clone the repository
+   Open index.html in your browser
+
+Or simply:
+   open index.html
+
+
+📌 Future Improvements
+
+   1. Add cart functionality
+   2. Implement user login/authentication
+   3. Integrate multiple APIs for more variety
+   4. Improve UI with animations and transitions
