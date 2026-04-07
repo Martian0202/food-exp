@@ -9,6 +9,8 @@ const searchInput = document.getElementById("search");
 const filterSelect = document.getElementById("filter");
 const sortSelect = document.getElementById("sort");
 
+const resetBtn = document.getElementById("reset");
+
 
 // Store all products
 let allProducts = [];
@@ -23,7 +25,7 @@ async function fetchData() {
     const res = await fetch(url);
     const data = await res.json();
 
-    console.log(data); 
+    
 
     allProducts = data.products;
     displayData(allProducts); 
@@ -33,7 +35,9 @@ async function fetchData() {
     container.innerHTML = "<p>Error loading data</p>";
   }
 
+  finally {
   loading.style.display = "none";
+}
 }
 
 // Display Function
@@ -96,6 +100,13 @@ function applyAll() {
 searchInput.addEventListener("input", applyAll);
 filterSelect.addEventListener("change", applyAll);
 sortSelect.addEventListener("change", applyAll);
+
+resetBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  filterSelect.value = "";
+  sortSelect.value = "";
+  displayData(allProducts);
+});
 
 // Calling the Function
 
