@@ -1,6 +1,6 @@
 // Variables + API
 
-const url = "https://dummyjson.com/products?limit=9000";
+const url = "https://dummyjson.com/products?limit=100";
 
 const container = document.getElementById("container");
 const loading = document.getElementById("loading");
@@ -25,9 +25,11 @@ async function fetchData() {
 
     console.log(data); 
 
-    displayData(data.products); 
+    allProducts = data.products;
+    displayData(allProducts); 
 
   } catch (err) {
+    console.log(err);
     container.innerHTML = "<p>Error loading data</p>";
   }
 
@@ -38,6 +40,11 @@ async function fetchData() {
 
 function displayData(products) {
   container.innerHTML = "";
+
+  if (products.length === 0) {
+    container.innerHTML = "<p>No items found</p>";
+    return;
+  }
 
   products.forEach(item => {
     const card = document.createElement("div");
@@ -60,14 +67,18 @@ function applyAll() {
 
   //Search
   const searchValue = searchInput.value.toLowerCase();
-  result = result.filter(item =>
-    item.title.toLowerCase().includes(searchValue)
-  );
-
+  if (searchValue) {
+    result = result.filter(item =>
+      item.title.toLowerCase().includes(searchValue)
+    );
+  }
+  
   //Filter
   const category = filterSelect.value;
-  if (category !== "") {
-    result = result.filter(item => item.category === category);
+  if (category) {
+    result = result.filter(item =>
+      item.category.toLowerCase() === category.toLowerCase()
+    );
   }
 
   //Sort
